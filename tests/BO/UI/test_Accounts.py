@@ -11,13 +11,11 @@ class TestBo():
     browser = ''
     @pytest.fixture(scope='function')
     def setupandauth(self):
-        if platform == "linux" or platform == "linux2":
-            print(platform)
-            chrome_driver = "/home/test/auto-tests/chromedriver"
-        elif platform == "win32":
-            path = os.path.dirname(os.path.abspath('test_Partners.py'))
-            chrome_driver = path + r"\chromedriver.exe"
+        path = os.path.dirname(os.path.abspath('main'))
+        chrome_driver = path + r"\chromedriver.exe"
+        print(path)
         url = r"https://mkittest-admin.alarislabs.com"
+        print(chrome_driver)
         options = Options()
         options.add_argument('--headless')
         self.browser = webdriver.Chrome(chrome_driver)
